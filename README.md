@@ -3,7 +3,6 @@ Created by Shyam Ramamoorthy on 14/02/16.
 
 Copy all the commands listed below and paste them into the terminal at once to compile all the .vhd files and run the testbenches. 
 Note: The final testbench, that of the ALU, takes around 1 minute to run. 
-To view the waveforms on gtkwave, use the command: gtkwave <path/to/file.vcd>
 
 ghdl -a EE224_Components.vhd
 
