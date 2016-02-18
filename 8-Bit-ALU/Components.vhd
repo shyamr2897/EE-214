@@ -5,21 +5,21 @@ use ieee.std_logic_1164.all;
 library work;
 use work.EE224_Components.all;
 
-entity XOR2 is
+entity XORTwo is
 	port(a,b: in std_ulogic;
 		c: out std_ulogic);
 end entity;
 
-architecture Struct of XOR2 is
+architecture Struct of XORTwo is
 	signal na, nb, t1, t2: std_ulogic;
 begin
 	n1: INVERTER port map (a => a, b=> na);
 	n2: INVERTER port map (a => b, b=> nb);
 	
-	a1: AND2 port map (a => a, b => nb, c => t1);
-	a2: AND2 port map (a => na, b => b, c => t2);
+	a1: ANDTwo port map (a => a, b => nb, c => t1);
+	a2: ANDTwo port map (a => na, b => b, c => t2);
 
-	o1: OR2 port map (a => t1, b => t2, c => c);
+	o1: ORTwo port map (a => t1, b => t2, c => c);
 
 end Struct;
 
@@ -39,13 +39,13 @@ end entity;
 architecture Struct of FullAdder is
 	signal s1, c1, c2 : std_ulogic;
 begin
-	x1: XOR2 port map (a => x, b => y, c => s1);
-	x2: XOR2 port map (a => s1, b => ci, c => s);
+	x1: XORTwo port map (a => x, b => y, c => s1);
+	x2: XORTwo port map (a => s1, b => ci, c => s);
 
-	a1: AND2 port map (a => x, b => y, c => c1);
-	a2: AND2 port map (a => ci, b => s1, c => c2);
+	a1: ANDTwo port map (a => x, b => y, c => c1);
+	a2: ANDTwo port map (a => ci, b => s1, c => c2);
 
-	o1: OR2 port map (a => c1, b => c2, c => co);
+	o1: ORTwo port map (a => c1, b => c2, c => co);
 end Struct;
 
 -------------------------------------------------------------------------------
@@ -94,10 +94,10 @@ architecture Struct of Multiplexer is
 begin
 	i1: INVERTER port map (a => s, b => t1);
 	
-	a1: AND2 port map (a => t1, b => a, c => t2);
-	a2: AND2 port map (a => s, b => b, c => t3);
+	a1: ANDTwo port map (a => t1, b => a, c => t2);
+	a2: ANDTwo port map (a => s, b => b, c => t3);
 
-	o1: OR2 port map (a => t2, b => t3, c => c);
+	o1: ORTwo port map (a => t2, b => t3, c => c);
 end Struct;
 
 -----------------------------------------------------------------------------

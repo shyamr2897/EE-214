@@ -1,0 +1,5509 @@
+|TopLevel
+TDI => Scan_Chain:scan_instance.TDI
+TDO <= Scan_Chain:scan_instance.TDO
+TMS => Scan_Chain:scan_instance.TMS
+TCLK => Scan_Chain:scan_instance.TCLK
+TRST => Scan_Chain:scan_instance.TRST
+
+
+|TopLevel|Scan_Chain:scan_instance
+TDI => Scan_reg:In_Reg.SI
+TDO <= Scan_reg:Out_Reg.SO
+TMS => next_state.DATAB
+TMS => next_state.DATAB
+TMS => L2_en.DATAB
+TMS => next_state.DATAB
+TMS => Selector0.IN2
+TMS => Selector1.IN1
+TMS => Selector2.IN1
+TMS => Selector3.IN1
+TCLK => Scan_reg:In_Reg.clock
+TCLK => Scan_reg:Out_Reg.clock
+TCLK => current_state~1.DATAIN
+TRST => L1_en.OUTPUTSELECT
+TRST => L2_en.OUTPUTSELECT
+TRST => cap_shft.OUTPUTSELECT
+TRST => Scan_reg:In_Reg.reset
+TRST => Scan_reg:Out_Reg.reset
+TRST => current_state~3.DATAIN
+TRST => Scan_reg:In_Reg.sel_reg
+TRST => Scan_reg:Out_Reg.sel_reg
+TRST => state[2]$latch.LATCH_ENABLE
+TRST => state[1]$latch.LATCH_ENABLE
+TRST => state[0]$latch.LATCH_ENABLE
+TRST => next_state.s_update_166.LATCH_ENABLE
+TRST => next_state.s_capture_180.LATCH_ENABLE
+TRST => next_state.s_DR_187.LATCH_ENABLE
+TRST => next_state.s_idle_194.LATCH_ENABLE
+TRST => next_state.s_shift_173.LATCH_ENABLE
+dut_in[0] <= Scan_reg:In_Reg.PO[0]
+dut_in[1] <= Scan_reg:In_Reg.PO[1]
+dut_in[2] <= Scan_reg:In_Reg.PO[2]
+dut_in[3] <= Scan_reg:In_Reg.PO[3]
+dut_in[4] <= Scan_reg:In_Reg.PO[4]
+dut_in[5] <= Scan_reg:In_Reg.PO[5]
+dut_in[6] <= Scan_reg:In_Reg.PO[6]
+dut_in[7] <= Scan_reg:In_Reg.PO[7]
+dut_in[8] <= Scan_reg:In_Reg.PO[8]
+dut_in[9] <= Scan_reg:In_Reg.PO[9]
+dut_in[10] <= Scan_reg:In_Reg.PO[10]
+dut_in[11] <= Scan_reg:In_Reg.PO[11]
+dut_in[12] <= Scan_reg:In_Reg.PO[12]
+dut_in[13] <= Scan_reg:In_Reg.PO[13]
+dut_in[14] <= Scan_reg:In_Reg.PO[14]
+dut_in[15] <= Scan_reg:In_Reg.PO[15]
+dut_in[16] <= Scan_reg:In_Reg.PO[16]
+dut_in[17] <= Scan_reg:In_Reg.PO[17]
+dut_out[0] => Scan_reg:Out_Reg.PI[0]
+dut_out[1] => Scan_reg:Out_Reg.PI[1]
+dut_out[2] => Scan_reg:Out_Reg.PI[2]
+dut_out[3] => Scan_reg:Out_Reg.PI[3]
+dut_out[4] => Scan_reg:Out_Reg.PI[4]
+dut_out[5] => Scan_reg:Out_Reg.PI[5]
+dut_out[6] => Scan_reg:Out_Reg.PI[6]
+dut_out[7] => Scan_reg:Out_Reg.PI[7]
+state[0] <= state[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+state[1] <= state[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+state[2] <= state[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+state[3] <= <GND>
+state[4] <= <GND>
+state[5] <= <GND>
+state[6] <= <GND>
+state[7] <= <GND>
+
+
+|TopLevel|Scan_Chain:scan_instance|Scan_Reg:In_Reg
+clock => L2[0].CLK
+clock => L2[1].CLK
+clock => L2[2].CLK
+clock => L2[3].CLK
+clock => L2[4].CLK
+clock => L2[5].CLK
+clock => L2[6].CLK
+clock => L2[7].CLK
+clock => L2[8].CLK
+clock => L2[9].CLK
+clock => L2[10].CLK
+clock => L2[11].CLK
+clock => L2[12].CLK
+clock => L2[13].CLK
+clock => L2[14].CLK
+clock => L2[15].CLK
+clock => L2[16].CLK
+clock => L2[17].CLK
+clock => L1[0].CLK
+clock => L1[1].CLK
+clock => L1[2].CLK
+clock => L1[3].CLK
+clock => L1[4].CLK
+clock => L1[5].CLK
+clock => L1[6].CLK
+clock => L1[7].CLK
+clock => L1[8].CLK
+clock => L1[9].CLK
+clock => L1[10].CLK
+clock => L1[11].CLK
+clock => L1[12].CLK
+clock => L1[13].CLK
+clock => L1[14].CLK
+clock => L1[15].CLK
+clock => L1[16].CLK
+clock => L1[17].CLK
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+PI[0] => mux1[0].DATAB
+PI[0] => mux2.DATAB
+PI[1] => mux1[1].DATAB
+PI[1] => mux2.DATAB
+PI[2] => mux1[2].DATAB
+PI[2] => mux2.DATAB
+PI[3] => mux1[3].DATAB
+PI[3] => mux2.DATAB
+PI[4] => mux1[4].DATAB
+PI[4] => mux2.DATAB
+PI[5] => mux1[5].DATAB
+PI[5] => mux2.DATAB
+PI[6] => mux1[6].DATAB
+PI[6] => mux2.DATAB
+PI[7] => mux1[7].DATAB
+PI[7] => mux2.DATAB
+PI[8] => mux1[8].DATAB
+PI[8] => mux2.DATAB
+PI[9] => mux1[9].DATAB
+PI[9] => mux2.DATAB
+PI[10] => mux1[10].DATAB
+PI[10] => mux2.DATAB
+PI[11] => mux1[11].DATAB
+PI[11] => mux2.DATAB
+PI[12] => mux1[12].DATAB
+PI[12] => mux2.DATAB
+PI[13] => mux1[13].DATAB
+PI[13] => mux2.DATAB
+PI[14] => mux1[14].DATAB
+PI[14] => mux2.DATAB
+PI[15] => mux1[15].DATAB
+PI[15] => mux2.DATAB
+PI[16] => mux1[16].DATAB
+PI[16] => mux2.DATAB
+PI[17] => mux1[17].DATAB
+PI[17] => mux2.DATAB
+PO[0] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[1] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[2] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[3] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[4] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[5] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[6] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[7] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[8] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[9] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[10] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[11] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[12] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[13] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[14] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[15] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[16] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[17] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+SI => mux1[17].DATAA
+SO <= L1[0].DB_MAX_OUTPUT_PORT_TYPE
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+cap_shft => mux1[17].OUTPUTSELECT
+cap_shft => mux1[16].OUTPUTSELECT
+cap_shft => mux1[15].OUTPUTSELECT
+cap_shft => mux1[14].OUTPUTSELECT
+cap_shft => mux1[13].OUTPUTSELECT
+cap_shft => mux1[12].OUTPUTSELECT
+cap_shft => mux1[11].OUTPUTSELECT
+cap_shft => mux1[10].OUTPUTSELECT
+cap_shft => mux1[9].OUTPUTSELECT
+cap_shft => mux1[8].OUTPUTSELECT
+cap_shft => mux1[7].OUTPUTSELECT
+cap_shft => mux1[6].OUTPUTSELECT
+cap_shft => mux1[5].OUTPUTSELECT
+cap_shft => mux1[4].OUTPUTSELECT
+cap_shft => mux1[3].OUTPUTSELECT
+cap_shft => mux1[2].OUTPUTSELECT
+cap_shft => mux1[1].OUTPUTSELECT
+cap_shft => mux1[0].OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+
+
+|TopLevel|Scan_Chain:scan_instance|Scan_Reg:Out_Reg
+clock => L2[0].CLK
+clock => L2[1].CLK
+clock => L2[2].CLK
+clock => L2[3].CLK
+clock => L2[4].CLK
+clock => L2[5].CLK
+clock => L2[6].CLK
+clock => L2[7].CLK
+clock => L1[0].CLK
+clock => L1[1].CLK
+clock => L1[2].CLK
+clock => L1[3].CLK
+clock => L1[4].CLK
+clock => L1[5].CLK
+clock => L1[6].CLK
+clock => L1[7].CLK
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L1.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+reset => L2.OUTPUTSELECT
+PI[0] => mux1[0].DATAB
+PI[0] => mux2.DATAB
+PI[1] => mux1[1].DATAB
+PI[1] => mux2.DATAB
+PI[2] => mux1[2].DATAB
+PI[2] => mux2.DATAB
+PI[3] => mux1[3].DATAB
+PI[3] => mux2.DATAB
+PI[4] => mux1[4].DATAB
+PI[4] => mux2.DATAB
+PI[5] => mux1[5].DATAB
+PI[5] => mux2.DATAB
+PI[6] => mux1[6].DATAB
+PI[6] => mux2.DATAB
+PI[7] => mux1[7].DATAB
+PI[7] => mux2.DATAB
+PO[0] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[1] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[2] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[3] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[4] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[5] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[6] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+PO[7] <= mux2.DB_MAX_OUTPUT_PORT_TYPE
+SI => mux1[7].DATAA
+SO <= L1[0].DB_MAX_OUTPUT_PORT_TYPE
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L1_en => L1.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+L2_en => L2.OUTPUTSELECT
+cap_shft => mux1[7].OUTPUTSELECT
+cap_shft => mux1[6].OUTPUTSELECT
+cap_shft => mux1[5].OUTPUTSELECT
+cap_shft => mux1[4].OUTPUTSELECT
+cap_shft => mux1[3].OUTPUTSELECT
+cap_shft => mux1[2].OUTPUTSELECT
+cap_shft => mux1[1].OUTPUTSELECT
+cap_shft => mux1[0].OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+sel_reg => mux2.OUTPUTSELECT
+
+
+|TopLevel|ALU:dut_instance
+x[0] => EightBitAdder:ea.x[0]
+x[0] => EightBitSubtractor:es.x[0]
+x[0] => ShiftLeft:sl.x[0]
+x[0] => ShiftRight:sr.x[0]
+x[1] => EightBitAdder:ea.x[1]
+x[1] => EightBitSubtractor:es.x[1]
+x[1] => ShiftLeft:sl.x[1]
+x[1] => ShiftRight:sr.x[1]
+x[2] => EightBitAdder:ea.x[2]
+x[2] => EightBitSubtractor:es.x[2]
+x[2] => ShiftLeft:sl.x[2]
+x[2] => ShiftRight:sr.x[2]
+x[3] => EightBitAdder:ea.x[3]
+x[3] => EightBitSubtractor:es.x[3]
+x[3] => ShiftLeft:sl.x[3]
+x[3] => ShiftRight:sr.x[3]
+x[4] => EightBitAdder:ea.x[4]
+x[4] => EightBitSubtractor:es.x[4]
+x[4] => ShiftLeft:sl.x[4]
+x[4] => ShiftRight:sr.x[4]
+x[5] => EightBitAdder:ea.x[5]
+x[5] => EightBitSubtractor:es.x[5]
+x[5] => ShiftLeft:sl.x[5]
+x[5] => ShiftRight:sr.x[5]
+x[6] => EightBitAdder:ea.x[6]
+x[6] => EightBitSubtractor:es.x[6]
+x[6] => ShiftLeft:sl.x[6]
+x[6] => ShiftRight:sr.x[6]
+x[7] => EightBitAdder:ea.x[7]
+x[7] => EightBitSubtractor:es.x[7]
+x[7] => ShiftLeft:sl.x[7]
+x[7] => ShiftRight:sr.x[7]
+y[0] => EightBitAdder:ea.y[0]
+y[0] => EightBitSubtractor:es.y[0]
+y[0] => ShiftLeft:sl.y[0]
+y[0] => ShiftRight:sr.y[0]
+y[1] => EightBitAdder:ea.y[1]
+y[1] => EightBitSubtractor:es.y[1]
+y[1] => ShiftLeft:sl.y[1]
+y[1] => ShiftRight:sr.y[1]
+y[2] => EightBitAdder:ea.y[2]
+y[2] => EightBitSubtractor:es.y[2]
+y[2] => ShiftLeft:sl.y[2]
+y[2] => ShiftRight:sr.y[2]
+y[3] => EightBitAdder:ea.y[3]
+y[3] => EightBitSubtractor:es.y[3]
+y[3] => ShiftLeft:sl.y[3]
+y[3] => ShiftRight:sr.y[3]
+y[4] => EightBitAdder:ea.y[4]
+y[4] => EightBitSubtractor:es.y[4]
+y[4] => ShiftLeft:sl.y[4]
+y[4] => ShiftRight:sr.y[4]
+y[5] => EightBitAdder:ea.y[5]
+y[5] => EightBitSubtractor:es.y[5]
+y[5] => ShiftLeft:sl.y[5]
+y[5] => ShiftRight:sr.y[5]
+y[6] => EightBitAdder:ea.y[6]
+y[6] => EightBitSubtractor:es.y[6]
+y[6] => ShiftLeft:sl.y[6]
+y[6] => ShiftRight:sr.y[6]
+y[7] => EightBitAdder:ea.y[7]
+y[7] => EightBitSubtractor:es.y[7]
+y[7] => ShiftLeft:sl.y[7]
+y[7] => ShiftRight:sr.y[7]
+s[0] => FourOneMux:m0.s[0]
+s[0] => FourOneMux:m1.s[0]
+s[0] => FourOneMux:m2.s[0]
+s[0] => FourOneMux:m3.s[0]
+s[0] => FourOneMux:m4.s[0]
+s[0] => FourOneMux:m5.s[0]
+s[0] => FourOneMux:m6.s[0]
+s[0] => FourOneMux:m7.s[0]
+s[1] => FourOneMux:m0.s[1]
+s[1] => FourOneMux:m1.s[1]
+s[1] => FourOneMux:m2.s[1]
+s[1] => FourOneMux:m3.s[1]
+s[1] => FourOneMux:m4.s[1]
+s[1] => FourOneMux:m5.s[1]
+s[1] => FourOneMux:m6.s[1]
+s[1] => FourOneMux:m7.s[1]
+c[0] <= FourOneMux:m0.o
+c[1] <= FourOneMux:m1.o
+c[2] <= FourOneMux:m2.o
+c[3] <= FourOneMux:m3.o
+c[4] <= FourOneMux:m4.o
+c[5] <= FourOneMux:m5.o
+c[6] <= FourOneMux:m6.o
+c[7] <= FourOneMux:m7.o
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea
+x[0] => FullAdder:f0.x
+x[1] => FullAdder:f1.x
+x[2] => FullAdder:f2.x
+x[3] => FullAdder:f3.x
+x[4] => FullAdder:f4.x
+x[5] => FullAdder:f5.x
+x[6] => FullAdder:f6.x
+x[7] => FullAdder:f7.x
+y[0] => FullAdder:f0.y
+y[1] => FullAdder:f1.y
+y[2] => FullAdder:f2.y
+y[3] => FullAdder:f3.y
+y[4] => FullAdder:f4.y
+y[5] => FullAdder:f5.y
+y[6] => FullAdder:f6.y
+y[7] => FullAdder:f7.y
+s[0] <= FullAdder:f0.s
+s[1] <= FullAdder:f1.s
+s[2] <= FullAdder:f2.s
+s[3] <= FullAdder:f3.s
+s[4] <= FullAdder:f4.s
+s[5] <= FullAdder:f5.s
+s[6] <= FullAdder:f6.s
+s[7] <= FullAdder:f7.s
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f0|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f4|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f5|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f6|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitAdder:ea|FullAdder:f7|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es
+x[0] => EightBitAdder:e1.x[0]
+x[1] => EightBitAdder:e1.x[1]
+x[2] => EightBitAdder:e1.x[2]
+x[3] => EightBitAdder:e1.x[3]
+x[4] => EightBitAdder:e1.x[4]
+x[5] => EightBitAdder:e1.x[5]
+x[6] => EightBitAdder:e1.x[6]
+x[7] => EightBitAdder:e1.x[7]
+y[0] => TwosComplement:t0.x[0]
+y[1] => TwosComplement:t0.x[1]
+y[2] => TwosComplement:t0.x[2]
+y[3] => TwosComplement:t0.x[3]
+y[4] => TwosComplement:t0.x[4]
+y[5] => TwosComplement:t0.x[5]
+y[6] => TwosComplement:t0.x[6]
+y[7] => TwosComplement:t0.x[7]
+s[0] <= EightBitAdder:e1.s[0]
+s[1] <= EightBitAdder:e1.s[1]
+s[2] <= EightBitAdder:e1.s[2]
+s[3] <= EightBitAdder:e1.s[3]
+s[4] <= EightBitAdder:e1.s[4]
+s[5] <= EightBitAdder:e1.s[5]
+s[6] <= EightBitAdder:e1.s[6]
+s[7] <= EightBitAdder:e1.s[7]
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0
+x[0] => INVERTER:n0.a
+x[1] => INVERTER:n1.a
+x[2] => INVERTER:n2.a
+x[3] => INVERTER:n3.a
+x[4] => INVERTER:n4.a
+x[5] => INVERTER:n5.a
+x[6] => INVERTER:n6.a
+x[7] => INVERTER:n7.a
+t[0] <= EightBitAdder:f0.s[0]
+t[1] <= EightBitAdder:f0.s[1]
+t[2] <= EightBitAdder:f0.s[2]
+t[3] <= EightBitAdder:f0.s[3]
+t[4] <= EightBitAdder:f0.s[4]
+t[5] <= EightBitAdder:f0.s[5]
+t[6] <= EightBitAdder:f0.s[6]
+t[7] <= EightBitAdder:f0.s[7]
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|INVERTER:n0
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|INVERTER:n3
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|INVERTER:n4
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|INVERTER:n5
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|INVERTER:n6
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|INVERTER:n7
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0
+x[0] => FullAdder:f0.x
+x[1] => FullAdder:f1.x
+x[2] => FullAdder:f2.x
+x[3] => FullAdder:f3.x
+x[4] => FullAdder:f4.x
+x[5] => FullAdder:f5.x
+x[6] => FullAdder:f6.x
+x[7] => FullAdder:f7.x
+y[0] => FullAdder:f0.y
+y[1] => FullAdder:f1.y
+y[2] => FullAdder:f2.y
+y[3] => FullAdder:f3.y
+y[4] => FullAdder:f4.y
+y[5] => FullAdder:f5.y
+y[6] => FullAdder:f6.y
+y[7] => FullAdder:f7.y
+s[0] <= FullAdder:f0.s
+s[1] <= FullAdder:f1.s
+s[2] <= FullAdder:f2.s
+s[3] <= FullAdder:f3.s
+s[4] <= FullAdder:f4.s
+s[5] <= FullAdder:f5.s
+s[6] <= FullAdder:f6.s
+s[7] <= FullAdder:f7.s
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f0|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f4|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f5|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f6|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|TwosComplement:t0|EightBitAdder:f0|FullAdder:f7|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1
+x[0] => FullAdder:f0.x
+x[1] => FullAdder:f1.x
+x[2] => FullAdder:f2.x
+x[3] => FullAdder:f3.x
+x[4] => FullAdder:f4.x
+x[5] => FullAdder:f5.x
+x[6] => FullAdder:f6.x
+x[7] => FullAdder:f7.x
+y[0] => FullAdder:f0.y
+y[1] => FullAdder:f1.y
+y[2] => FullAdder:f2.y
+y[3] => FullAdder:f3.y
+y[4] => FullAdder:f4.y
+y[5] => FullAdder:f5.y
+y[6] => FullAdder:f6.y
+y[7] => FullAdder:f7.y
+s[0] <= FullAdder:f0.s
+s[1] <= FullAdder:f1.s
+s[2] <= FullAdder:f2.s
+s[3] <= FullAdder:f3.s
+s[4] <= FullAdder:f4.s
+s[5] <= FullAdder:f5.s
+s[6] <= FullAdder:f6.s
+s[7] <= FullAdder:f7.s
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f0|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f4|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f5|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f6|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7
+x => XORTwo:x1.a
+x => ANDTwo:a1.a
+y => XORTwo:x1.b
+y => ANDTwo:a1.b
+ci => XORTwo:x2.b
+ci => ANDTwo:a2.a
+s <= XORTwo:x2.c
+co <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x1
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x1|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x1|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x2
+a => INVERTER:n1.a
+a => ANDTwo:a1.a
+b => INVERTER:n2.a
+b => ANDTwo:a2.b
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x2|INVERTER:n1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x2|INVERTER:n2
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|XORTwo:x2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|EightBitSubtractor:es|EightBitAdder:e1|FullAdder:f7|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl
+x[0] => Multiplexer:m00.a
+x[0] => Multiplexer:m01.b
+x[1] => Multiplexer:m01.a
+x[1] => Multiplexer:m02.b
+x[2] => Multiplexer:m02.a
+x[2] => Multiplexer:m03.b
+x[3] => Multiplexer:m03.a
+x[3] => Multiplexer:m04.b
+x[4] => Multiplexer:m04.a
+x[4] => Multiplexer:m05.b
+x[5] => Multiplexer:m05.a
+x[5] => Multiplexer:m06.b
+x[6] => Multiplexer:m06.a
+x[6] => Multiplexer:m07.b
+x[7] => Multiplexer:m07.a
+y[0] => Multiplexer:m00.s
+y[0] => Multiplexer:m01.s
+y[0] => Multiplexer:m02.s
+y[0] => Multiplexer:m03.s
+y[0] => Multiplexer:m04.s
+y[0] => Multiplexer:m05.s
+y[0] => Multiplexer:m06.s
+y[0] => Multiplexer:m07.s
+y[1] => Multiplexer:m10.s
+y[1] => Multiplexer:m11.s
+y[1] => Multiplexer:m12.s
+y[1] => Multiplexer:m13.s
+y[1] => Multiplexer:m14.s
+y[1] => Multiplexer:m15.s
+y[1] => Multiplexer:m16.s
+y[1] => Multiplexer:m17.s
+y[2] => Multiplexer:m20.s
+y[2] => Multiplexer:m21.s
+y[2] => Multiplexer:m22.s
+y[2] => Multiplexer:m23.s
+y[2] => Multiplexer:m24.s
+y[2] => Multiplexer:m25.s
+y[2] => Multiplexer:m26.s
+y[2] => Multiplexer:m27.s
+y[3] => ~NO_FANOUT~
+y[4] => ~NO_FANOUT~
+y[5] => ~NO_FANOUT~
+y[6] => ~NO_FANOUT~
+y[7] => ~NO_FANOUT~
+r[0] <= Multiplexer:m20.c
+r[1] <= Multiplexer:m21.c
+r[2] <= Multiplexer:m22.c
+r[3] <= Multiplexer:m23.c
+r[4] <= Multiplexer:m24.c
+r[5] <= Multiplexer:m25.c
+r[6] <= Multiplexer:m26.c
+r[7] <= Multiplexer:m27.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m00
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m00|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m00|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m00|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m00|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m01
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m01|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m01|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m01|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m01|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m02
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m02|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m02|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m02|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m02|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m03
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m03|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m03|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m03|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m03|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m04
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m04|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m04|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m04|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m04|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m05
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m05|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m05|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m05|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m05|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m06
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m06|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m06|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m06|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m06|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m07
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m07|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m07|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m07|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m07|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m10
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m10|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m10|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m10|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m10|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m11
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m11|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m11|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m11|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m11|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m12
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m12|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m12|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m12|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m12|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m13
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m13|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m13|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m13|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m13|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m14
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m14|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m14|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m14|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m14|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m15
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m15|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m15|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m15|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m15|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m16
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m16|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m16|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m16|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m16|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m17
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m17|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m17|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m17|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m17|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m20
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m20|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m20|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m20|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m20|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m21
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m21|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m21|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m21|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m21|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m22
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m22|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m22|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m22|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m22|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m23
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m23|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m23|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m23|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m23|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m24
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m24|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m24|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m24|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m24|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m25
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m25|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m25|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m25|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m25|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m26
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m26|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m26|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m26|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m26|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m27
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m27|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m27|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m27|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftLeft:sl|Multiplexer:m27|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr
+x[0] => ShiftLeft:sl.x[7]
+x[1] => ShiftLeft:sl.x[6]
+x[2] => ShiftLeft:sl.x[5]
+x[3] => ShiftLeft:sl.x[4]
+x[4] => ShiftLeft:sl.x[3]
+x[5] => ShiftLeft:sl.x[2]
+x[6] => ShiftLeft:sl.x[1]
+x[7] => ShiftLeft:sl.x[0]
+y[0] => ShiftLeft:sl.y[0]
+y[1] => ShiftLeft:sl.y[1]
+y[2] => ShiftLeft:sl.y[2]
+y[3] => ShiftLeft:sl.y[3]
+y[4] => ShiftLeft:sl.y[4]
+y[5] => ShiftLeft:sl.y[5]
+y[6] => ShiftLeft:sl.y[6]
+y[7] => ShiftLeft:sl.y[7]
+r[0] <= ShiftLeft:sl.r[7]
+r[1] <= ShiftLeft:sl.r[6]
+r[2] <= ShiftLeft:sl.r[5]
+r[3] <= ShiftLeft:sl.r[4]
+r[4] <= ShiftLeft:sl.r[3]
+r[5] <= ShiftLeft:sl.r[2]
+r[6] <= ShiftLeft:sl.r[1]
+r[7] <= ShiftLeft:sl.r[0]
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl
+x[0] => Multiplexer:m00.a
+x[0] => Multiplexer:m01.b
+x[1] => Multiplexer:m01.a
+x[1] => Multiplexer:m02.b
+x[2] => Multiplexer:m02.a
+x[2] => Multiplexer:m03.b
+x[3] => Multiplexer:m03.a
+x[3] => Multiplexer:m04.b
+x[4] => Multiplexer:m04.a
+x[4] => Multiplexer:m05.b
+x[5] => Multiplexer:m05.a
+x[5] => Multiplexer:m06.b
+x[6] => Multiplexer:m06.a
+x[6] => Multiplexer:m07.b
+x[7] => Multiplexer:m07.a
+y[0] => Multiplexer:m00.s
+y[0] => Multiplexer:m01.s
+y[0] => Multiplexer:m02.s
+y[0] => Multiplexer:m03.s
+y[0] => Multiplexer:m04.s
+y[0] => Multiplexer:m05.s
+y[0] => Multiplexer:m06.s
+y[0] => Multiplexer:m07.s
+y[1] => Multiplexer:m10.s
+y[1] => Multiplexer:m11.s
+y[1] => Multiplexer:m12.s
+y[1] => Multiplexer:m13.s
+y[1] => Multiplexer:m14.s
+y[1] => Multiplexer:m15.s
+y[1] => Multiplexer:m16.s
+y[1] => Multiplexer:m17.s
+y[2] => Multiplexer:m20.s
+y[2] => Multiplexer:m21.s
+y[2] => Multiplexer:m22.s
+y[2] => Multiplexer:m23.s
+y[2] => Multiplexer:m24.s
+y[2] => Multiplexer:m25.s
+y[2] => Multiplexer:m26.s
+y[2] => Multiplexer:m27.s
+y[3] => ~NO_FANOUT~
+y[4] => ~NO_FANOUT~
+y[5] => ~NO_FANOUT~
+y[6] => ~NO_FANOUT~
+y[7] => ~NO_FANOUT~
+r[0] <= Multiplexer:m20.c
+r[1] <= Multiplexer:m21.c
+r[2] <= Multiplexer:m22.c
+r[3] <= Multiplexer:m23.c
+r[4] <= Multiplexer:m24.c
+r[5] <= Multiplexer:m25.c
+r[6] <= Multiplexer:m26.c
+r[7] <= Multiplexer:m27.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m00
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m00|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m00|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m00|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m00|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m01
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m01|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m01|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m01|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m01|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m02
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m02|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m02|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m02|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m02|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m03
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m03|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m03|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m03|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m03|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m04
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m04|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m04|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m04|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m04|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m05
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m05|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m05|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m05|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m05|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m06
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m06|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m06|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m06|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m06|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m07
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m07|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m07|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m07|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m07|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m10
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m10|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m10|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m10|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m10|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m11
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m11|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m11|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m11|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m11|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m12
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m12|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m12|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m12|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m12|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m13
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m13|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m13|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m13|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m13|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m14
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m14|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m14|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m14|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m14|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m15
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m15|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m15|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m15|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m15|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m16
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m16|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m16|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m16|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m16|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m17
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m17|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m17|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m17|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m17|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m20
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m20|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m20|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m20|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m20|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m21
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m21|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m21|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m21|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m21|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m22
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m22|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m22|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m22|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m22|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m23
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m23|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m23|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m23|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m23|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m24
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m24|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m24|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m24|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m24|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m25
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m25|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m25|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m25|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m25|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m26
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m26|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m26|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m26|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m26|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m27
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m27|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m27|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m27|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|ShiftRight:sr|ShiftLeft:sl|Multiplexer:m27|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0
+a => Multiplexer:m1.a
+b => Multiplexer:m1.b
+c => Multiplexer:m2.b
+d => Multiplexer:m2.a
+s[0] => Multiplexer:m1.s
+s[0] => Multiplexer:m2.s
+s[1] => Multiplexer:m3.s
+o <= Multiplexer:m3.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m1
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m1|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m2
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m2|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m3
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m3|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m0|Multiplexer:m3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1
+a => Multiplexer:m1.a
+b => Multiplexer:m1.b
+c => Multiplexer:m2.b
+d => Multiplexer:m2.a
+s[0] => Multiplexer:m1.s
+s[0] => Multiplexer:m2.s
+s[1] => Multiplexer:m3.s
+o <= Multiplexer:m3.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m1
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m1|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m2
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m2|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m3
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m3|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m1|Multiplexer:m3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2
+a => Multiplexer:m1.a
+b => Multiplexer:m1.b
+c => Multiplexer:m2.b
+d => Multiplexer:m2.a
+s[0] => Multiplexer:m1.s
+s[0] => Multiplexer:m2.s
+s[1] => Multiplexer:m3.s
+o <= Multiplexer:m3.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m1
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m1|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m2
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m2|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m3
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m3|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m2|Multiplexer:m3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3
+a => Multiplexer:m1.a
+b => Multiplexer:m1.b
+c => Multiplexer:m2.b
+d => Multiplexer:m2.a
+s[0] => Multiplexer:m1.s
+s[0] => Multiplexer:m2.s
+s[1] => Multiplexer:m3.s
+o <= Multiplexer:m3.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m1
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m1|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m2
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m2|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m3
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m3|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m3|Multiplexer:m3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4
+a => Multiplexer:m1.a
+b => Multiplexer:m1.b
+c => Multiplexer:m2.b
+d => Multiplexer:m2.a
+s[0] => Multiplexer:m1.s
+s[0] => Multiplexer:m2.s
+s[1] => Multiplexer:m3.s
+o <= Multiplexer:m3.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m1
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m1|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m2
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m2|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m3
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m3|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m4|Multiplexer:m3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5
+a => Multiplexer:m1.a
+b => Multiplexer:m1.b
+c => Multiplexer:m2.b
+d => Multiplexer:m2.a
+s[0] => Multiplexer:m1.s
+s[0] => Multiplexer:m2.s
+s[1] => Multiplexer:m3.s
+o <= Multiplexer:m3.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m1
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m1|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m2
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m2|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m3
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m3|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m5|Multiplexer:m3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6
+a => Multiplexer:m1.a
+b => Multiplexer:m1.b
+c => Multiplexer:m2.b
+d => Multiplexer:m2.a
+s[0] => Multiplexer:m1.s
+s[0] => Multiplexer:m2.s
+s[1] => Multiplexer:m3.s
+o <= Multiplexer:m3.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m1
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m1|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m2
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m2|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m3
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m3|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m6|Multiplexer:m3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7
+a => Multiplexer:m1.a
+b => Multiplexer:m1.b
+c => Multiplexer:m2.b
+d => Multiplexer:m2.a
+s[0] => Multiplexer:m1.s
+s[0] => Multiplexer:m2.s
+s[1] => Multiplexer:m3.s
+o <= Multiplexer:m3.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m1
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m1|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m1|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m1|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m1|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m2
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m2|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m2|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m2|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m2|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m3
+a => ANDTwo:a1.b
+b => ANDTwo:a2.b
+s => INVERTER:i1.a
+s => ANDTwo:a2.a
+c <= ORTwo:o1.c
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m3|INVERTER:i1
+a => b.DATAIN
+b <= a.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m3|ANDTwo:a1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m3|ANDTwo:a2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|ALU:dut_instance|FourOneMux:m7|Multiplexer:m3|ORTwo:o1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+

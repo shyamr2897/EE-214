@@ -9,15 +9,15 @@ package EE224_Components is
 		port (a: in std_ulogic; b : out std_ulogic);
    	end component;
 
-  	component AND2 is
+  	component ANDTwo is
 		port (a, b: in std_ulogic; c : out std_ulogic);
    	end component;
 
-	component OR2 is
+	component ORTwo is
 		port (a, b: in std_ulogic; c : out std_ulogic);
    	end component;
 
-	component XOR2 is 
+	component XORTwo is 
 		port (a,b: in std_ulogic; c: out std_ulogic);
 	end component;
 

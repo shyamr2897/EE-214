@@ -11,22 +11,22 @@ end Behave;
 
 library ieee;
 use ieee.std_logic_1164.all;
-entity AND2 is
+entity ANDTwo is
   port (a, b: in std_ulogic;
          c: out std_ulogic);
-end entity AND2;
-architecture Behave of AND2 is
+end entity ANDTwo;
+architecture Behave of ANDTwo is
 begin
   c <= a and b;
 end Behave;
 
 library ieee;
 use ieee.std_logic_1164.all;
-entity OR2 is
+entity ORTwo is
   port (a, b: in std_ulogic;
          c: out std_ulogic);
-end entity OR2;
-architecture Behave of OR2 is
+end entity ORTwo;
+architecture Behave of ORTwo is
 begin
   c <= a or b;
 end Behave;
