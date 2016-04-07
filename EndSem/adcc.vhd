@@ -33,10 +33,6 @@ begin
 
         case fsm_state is
             when reset_state =>
-                cs_bar_var := '1';
-                wr_bar_var := '1';
-                rd_bar_var := '1';
-                adc_output_ready_var := '0';
                 wr_cycle := 0;
                 rd_cycle := 0;
                 if(adc_run = '1') then
@@ -47,15 +43,10 @@ begin
 
             when cs_to_wr =>
                 cs_bar_var := '0';
-                wr_bar_var := '1';
-                rd_bar_var := '1';
-                adc_output_ready_var := '0';
                 n_state := wr_high_state;
 
             when wr_high_state =>
                 cs_bar_var := '0';
-                rd_bar_var := '1';
-                adc_output_ready_var := '0';
                 if (wr_cycle < 5) then
                     wr_cycle := wr_cycle + 1;
                     wr_bar_var := '0';
@@ -67,9 +58,6 @@ begin
 
             when wr_to_intr =>
                 cs_bar_var := '0';
-                wr_bar_var := '1';
-                rd_bar_var := '1';
-                adc_output_ready_var := '0';
                 if(intr_bar = '0') then
                     n_state := intr_to_rd;
                 else
@@ -78,16 +66,11 @@ begin
 
             when intr_to_rd =>
                 cs_bar_var := '0';
-                wr_bar_var := '1';
-                rd_bar_var := '1';
-                adc_output_ready_var := '0';
                 n_state := rd_high_state;
 
 
             when rd_high_state =>
                 cs_bar_var := '0';
-                wr_bar_var := '1';
-                adc_output_ready_var := '0';
                 if (rd_cycle < 5) then
                     rd_cycle := rd_cycle + 1;
                     rd_bar_var := '0';
@@ -100,8 +83,6 @@ begin
 
             when done_state =>
                 cs_bar_var := '0';
-                wr_bar_var := '1';
-                rd_bar_var := '1';
                 adc_output_ready_var := '1';
                 db_out_var := db_in;
                 n_state := reset_state;
