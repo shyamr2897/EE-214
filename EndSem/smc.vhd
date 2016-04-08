@@ -4,6 +4,7 @@ use ieee.std_logic_1164.all;
 entity smc is
     port(
         mc_address: in std_logic_vector (12 downto 0);
+		  address: out std_logic_vector (12 downto 0);
         mc_start, mc_write: in std_logic;
         mc_write_data: in std_logic_vector(7 downto 0);
         mc_read_data: out std_logic_vector(7 downto 0);
@@ -18,15 +19,22 @@ architecture Behave of smc is
     type smc_fsmstate is(reset_state, r_we_to_cs, r_cs_to_oe, r_wait_for_dout, r_read_state, r_cs_oe_high, r_done_state, w_start_to_oe, w_oe_to_cs, w_cs_to_we, w_we_to_valid, w_valid_to_cs, w_cs_to_oe, w_done_state);
     signal fsm_state: smc_fsmstate;
 begin
-    process(fsm_state, clk, reset, mc_address, mc_start, mc_write)
+    process(fsm_state, clk, reset, mc_address, mc_start, mc_write, io, mc_write_data)
         variable n_state: smc_fsmstate;
-        variable dout_cyle: integer;
         variable we_bar_var, oe_bar_var, cs_bar_var, mc_done_var: std_logic;
         variable mc_read_data_var, io_var: std_logic_vector (7 downto 0);
+		  variable address_var :std_logic_vector(12 downto 0);
         variable op_var: std_logic; --0 for read, 1 for write
     begin
         --defaults
         n_state := fsm_state;
+        we_bar_var := '1';
+        oe_bar_var := '1';
+        cs_bar_var := '1';
+        io_var := (others => '0');
+        mc_read_data_var := (others => '0');
+		  mc_done_var := '0';
+        op_var := '0';
 
         case fsm_state is
 
@@ -35,7 +43,7 @@ begin
                 we_bar_var := '1';
                 oe_bar_var := '1';
                 cs_bar_var := '1';
-                mc_read_data_var := (others => '0');
+					 address_var := mc_address;
                 if(mc_start = '1') then
                     if(mc_write = '0') then
                         op_var := '0';
@@ -131,7 +139,8 @@ begin
                 cs_bar_var := '1';
                 mc_done_var := '1';
         end case;
-
+			
+			address <= address_var;
         if (op_var = '1') then
             io <= io_var;
         else
@@ -152,7 +161,3 @@ begin
         end if;
     end process;
 end Behave;
-
-
-
-                    
