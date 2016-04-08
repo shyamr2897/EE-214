@@ -5,7 +5,7 @@ entity smc is
     port(
         mc_address: in std_logic_vector (12 downto 0);
         mc_start, mc_write: in std_logic;
-        mc_write_data: in std_logic(7 downto 0);
+        mc_write_data: in std_logic_vector(7 downto 0);
         mc_read_data: out std_logic_vector(7 downto 0);
         mc_done: out std_logic;
         io: inout std_logic_vector(7 downto 0);
@@ -38,7 +38,7 @@ begin
                 mc_read_data_var := (others => '0');
                 if(mc_start = '1') then
                     if(mc_write = '0') then
-                        op_var = '0';
+                        op_var := '0';
                         n_state := r_we_to_cs;
                     else
                         op_var := '1';
@@ -71,13 +71,13 @@ begin
                 we_bar_var := '1';
                 cs_bar_var := '0';
                 oe_bar_var := '0';
-                mc_read_data_var := io;
                 n_state := r_cs_oe_high;
 
             when r_cs_oe_high =>
                 cs_bar_var := '1';
                 oe_bar_var := '1';
                 we_bar_var := '1';
+                mc_read_data_var := io;
                 n_state := r_done_state;
 
             when r_done_state =>
@@ -126,7 +126,7 @@ begin
 
             when w_done_state =>
                 n_state := reset_state;
-                = oe_bar_var := '1';
+                oe_bar_var := '1';
                 we_bar_var := '1';
                 cs_bar_var := '1';
                 mc_done_var := '1';
@@ -143,13 +143,15 @@ begin
         if (clk'event and (clk = '1')) then
             cs_bar <= cs_bar_var;
             we_bar <= we_bar_var;
-            rd_bar <= rd_bar_var;
+            oe_bar <= oe_bar_var;
             if(reset = '1') then
                 fsm_state <= reset_state;
             else
                 fsm_state <= n_state;
             end if;
         end if;
+    end process;
+end Behave;
 
 
 
