@@ -33,16 +33,17 @@ begin
 
         case fsm_state is
             when reset_state =>
-                wr_cycle := 0;
-                rd_cycle := 0;
+                wr_cycle := 1;
+                rd_cycle := 1;
                 if(adc_run = '1') then
                     n_state := cs_to_wr;
+                    cs_bar_var := '0';
                 else
                     n_state := reset_state;
                 end if;
 
             when cs_to_wr =>
-                cs_bar_var := '0';
+                wr_bar_var := '0';
                 n_state := wr_high_state;
 
             when wr_high_state =>
@@ -65,6 +66,7 @@ begin
                 end if;
 
             when intr_to_rd =>
+                rd_bar_var := '0';
                 cs_bar_var := '0';
                 n_state := rd_high_state;
 
