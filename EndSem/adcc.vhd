@@ -16,25 +16,28 @@ end entity;
 architecture Behave of adcc is
     type adcc_fsmstate is(reset_state, wr_high_state, rd_high_state, cs_to_wr, wr_to_intr, intr_to_rd, done_state);
     signal fsm_state : adcc_fsmstate;
+    signal rd_cycle, wr_cycle: integer;
 begin
     process(fsm_state, db_in, intr_bar, adc_run, clk, reset)
         variable n_state: adcc_fsmstate;
         variable cs_bar_var, wr_bar_var, rd_bar_var: std_logic;
         variable adc_output_ready_var: std_logic;
         variable db_out_var: std_logic_vector(7 downto 0);
-        variable wr_cycle, rd_cycle: integer;
+        variable wr_cycle_var, rd_cycle_var: integer;
     begin
         --defaults
         n_state := fsm_state;
         cs_bar_var := '1';
         wr_bar_var := '1';
         rd_bar_var := '1';
+        wr_cycle_var := wr_cycle;
+        rd_cycle_var := rd_cycle;
         adc_output_ready_var := '0';
 
         case fsm_state is
             when reset_state =>
-                wr_cycle := 1;
-                rd_cycle := 1;
+                wr_cycle_var := 1;
+                rd_cycle_var := 1;
                 if(adc_run = '1') then
                     n_state := cs_to_wr;
                     cs_bar_var := '0';
@@ -48,8 +51,8 @@ begin
 
             when wr_high_state =>
                 cs_bar_var := '0';
-                if (wr_cycle < 5) then
-                    wr_cycle := wr_cycle + 1;
+                if (wr_cycle_var < 5) then
+                    wr_cycle_var := wr_cycle_var + 1;
                     wr_bar_var := '0';
                     n_state := wr_high_state;
                 else
@@ -73,8 +76,8 @@ begin
 
             when rd_high_state =>
                 cs_bar_var := '0';
-                if (rd_cycle < 5) then
-                    rd_cycle := rd_cycle + 1;
+                if (rd_cycle_var < 5) then
+                    rd_cycle_var := rd_cycle_var + 1;
                     rd_bar_var := '0';
                     n_state := rd_high_state;
 
@@ -97,6 +100,8 @@ begin
             cs_bar <= cs_bar_var;
             wr_bar <= wr_bar_var;
             rd_bar <= rd_bar_var;
+            wr_cycle <= wr_cycle_var;
+            rd_cycle <= rd_cycle_var;
             if(reset = '1') then
                 fsm_state <= reset_state;
             else
